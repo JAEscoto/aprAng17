@@ -1,0 +1,23 @@
+<h1>Hello {{ username }}, {{ ocupation }}</h1>
+
+<!-- Control Flow -->
+<!-- @if (userExist) {
+<p>Muy bien, si existes!</p>
+}@else {
+<p>Como que no existes</p>
+} -->
+<p *ngIf="userExist">Muy bien, si existes!</p>
+
+<h2>Estos son mis SO:</h2>
+<ul>
+  @for (os of operativeSystem; track os.id) {
+  <!--         Event Binding -->
+  <li (mouseover)="onMouseOver(os.name)">{{ os.name | uppercase }}</li>
+  <!--                                   Property binding -->
+  }
+</ul>
+<!---->
+<div class="editable-div" [contentEditable]="isEditable"></div>
+
+<!-- Comunicacion entre componentes, Input en la primera linea con "ocupations"-->
+<button (click)="emitToParent()">Mensaje a Padre</button>
